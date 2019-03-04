@@ -76,7 +76,7 @@ public class ColegioController {
             @ApiResponse(code = 404, message = "Recurso no encontrado"),
             @ApiResponse(code = 500, message = "Error interno al procesar la respuesta")})
 	public String saludo( @PathVariable("name") String name){
-		return "Hola " + name;
+		return "Hola!! " + name;
 	}
 	
 	
