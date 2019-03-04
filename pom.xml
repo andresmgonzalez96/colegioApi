@@ -3,12 +3,12 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>co.udea.heroes</groupId>
-	<artifactId>heroes-api</artifactId>
+	<groupId>co.udea.colegio.api</groupId>
+	<artifactId>colegio-api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>heroes-api</name>
+	<name>colegio-api</name>
 	<description>Servicios rest para tour of heroes</description>
 
 	<parent>
