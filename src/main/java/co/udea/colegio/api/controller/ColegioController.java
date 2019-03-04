@@ -20,7 +20,6 @@ import org.springframework.web.bind.annotation.RestController;
 import co.udea.colegio.api.exception.DataNotFoundException;
 import co.udea.colegio.api.model.Alumnos;
 import co.udea.colegio.api.repository.AlumnosRepository;
-import co.udea.colegio.api.repository.CursosRepository;
 import co.udea.colegio.api.service.ColegioService;
 import co.udea.colegio.api.util.Messages;
 import io.swagger.annotations.ApiOperation;
@@ -38,9 +37,6 @@ public class ColegioController {
 	
 	@Autowired
 	private AlumnosRepository studentRepository;
-	
-	@Autowired
-	private CursosRepository courseRepository;
 	
 	@Autowired
     private Messages messages;	
@@ -70,6 +66,17 @@ public class ColegioController {
 	public ResponseEntity<Alumnos> getAlumno( @PathVariable("id") int id){
 		 log.debug("REST request getAlumno id : {}", id);
 		return ResponseEntity.ok(colegioService.getAlumno(id));
+	}
+	
+	@GetMapping(value = "saludo/{name}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ApiOperation(value = "Consultar alumno por id", response = Page.class)
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Alumno encontrado", response = Alumnos.class),
+            @ApiResponse(code = 400, message = "La petición es invalida"),
+            @ApiResponse(code = 404, message = "Recurso no encontrado"),
+            @ApiResponse(code = 500, message = "Error interno al procesar la respuesta")})
+	public String saludo( @PathVariable("name") String name){
+		return "Hola " + name;
 	}
 	
 	
